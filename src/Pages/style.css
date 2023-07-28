@@ -147,12 +147,14 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1510px;
   margin: 0 auto;
 }
 
 .mainContent {
   position: relative;
+  max-width: 1510px;
+  margin: 0 auto;
 }
 
 .mainContent .container {
@@ -364,12 +366,7 @@ body:after{
   }
 }
 
-@media (max-width:640px){
-  .hIcon img {
-    width: 100px;
-    margin: -18px 0 -31px;
-  }
-}
+
 @media (max-width:479px) {
   .card-list {
   width: 375px;

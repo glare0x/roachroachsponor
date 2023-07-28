@@ -50,3 +50,14 @@
   width: 160px;
   margin: -34px 0 -43px;
 }
+
+.hIcon a{
+  display: inline-block;
+}
+
+@media (max-width:640px){
+  .hIcon img {
+    width: 100px;
+    margin: -18px 0 -31px;
+  }
+}

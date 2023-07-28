@@ -1,4 +1,4 @@
-import logo from "../Images/logo.svg";
+import logo from "../Images/logo.png";
 import busd from "../Images/busd-logo.svg";
 import redHamster from "../Images/hamster-red.svg";
 import yellowHamster from "../Images/hamster-yellow.svg";

@@ -9,7 +9,14 @@ import "./style.css";
 export default function Home() {
   return (
     <>
-      <div className="heroVideo">
+      
+      <div className="mainContent">
+        <div className="container">
+
+          
+          <div className="cardmainwrap">
+
+          <div className="heroVideo">
         <iframe
           title="YouTube Video"
           width="100%"
@@ -21,27 +28,6 @@ export default function Home() {
           controls
         ></iframe>
       </div>
-      {/* <section className="chat">
-        <ul className="activeSessions">
-          {data.map((chat) => (
-            <li>
-              <ChatCard key={chat.id} data={chat} />
-            </li>
-          ))}
-        </ul>
-        <div className="sendMessage">
-        <input type="text" placeholder="Enter Your Message Here" />
-        <p>172 online</p>
-        <Button
-        text={"Send"}
-        clickFunction={() => console.log("Send Button Clicked")}
-        />
-        </div>
-      </section> */}
-
-      <div className="mainContent">
-        <div className="container">
-          <div className="cardmainwrap">
             <CountDown
               time={{ hrs: 4, min: 20, sec: 40 }}
               text={"Place Your Bets, Race Starts in"}

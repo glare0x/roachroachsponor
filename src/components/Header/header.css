@@ -34,7 +34,8 @@
   border-radius: 30px;
   background: #98ef00;
   line-height: 1em;
-  transition: 0.3s all
+  transition: 0.3s all;
+  font-family: "SplatterKings";
 }
 
 .singIn a img {
@@ -46,5 +47,6 @@
 }
 
 .hIcon img {
-  width: 70px
+  width: 160px;
+  margin: -34px 0 -43px;
 }

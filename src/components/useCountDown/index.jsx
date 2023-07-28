@@ -40,7 +40,7 @@ const App = ({ time, text }) => {
 
   const getDeadTime = () => {
     let deadline = new Date();
-    deadline.setSeconds(deadline.getSeconds() + hrs * 60 + min * 60 + sec);
+    deadline.setSeconds(deadline.getSeconds() + hrs * 60 * 60 + min * 60 + sec);
     return deadline;
   };
 

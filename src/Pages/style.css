@@ -67,8 +67,10 @@
 .sendMessage .btn {
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
+  padding-top: 10px;
 }
+
 
 .sendMessage .btn button {
   background: #98ef00;
@@ -84,7 +86,8 @@
 .sendMessage p {
   color: #5d4277;
   position: relative;
-  padding-left: 20px
+  padding-left: 20px;
+  margin: 0;
 }
 
 .sendMessage p:before {
@@ -154,7 +157,7 @@
 
 .mainContent .container {
   display: flex;
-  max-width: 1400px;
+  max-width: 1510px;
 }
 
 .chatwrap {
@@ -261,20 +264,38 @@
 
 .cards>div a {
   padding: 10px 20px;
-  background: #0F212E;
+  background: #98ef00;
   text-decoration: none;
-  color: white;
-  transition: 0.3s all
+  color: #5d4277;
+  transition: 0.3s all;
+  border-radius: 30px;
 }
 
 .cards>div a:hover {
-  transform: scale(1.2);
-
+  transform: scale(1.1);
 }
 
 .counter {
   padding: 0 20px;
 }
+
+body:after{
+    content:'';
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top:0;
+    height: 100%;
+    background: black;
+    opacity: 0.6;
+    z-index: -1;
+    bottom:0;
+    right: 0;
+ }
+ 
+ .heroVideo{
+  padding: 20px 20px
+ }
 
 @media (max-width:1100px) {
   .chatwrap {
@@ -345,6 +366,17 @@
 
 @media (max-width:479px) {
   .card-list {
-    width: 375px;
+  width: 375px;
+  }
+
+  .heroVideo {
+  padding: 40px 20px 0;
+  }
+  .heroVideo iframe {
+  height: 222px !important;
+  }
+
+  .cards>div {
+  row-gap: 14px;
   }
 }

@@ -170,6 +170,7 @@
   top: 0;
   border:6px solid #5d4277;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .cardmainwrap {
@@ -224,7 +225,7 @@
   overflow: auto;
   background: #5d4277;
   border: 6px solid #98ef00;
-  border-radius:10px;
+  border-radius:20px;
 }
 
 
@@ -303,7 +304,7 @@ body:after{
  }
  
  .heroVideo{
-  padding: 20px 20px
+  padding: 30px 35px 0;
  }
 
  iframe {
@@ -338,6 +339,12 @@ body:after{
 
   .heroVideo iframe {
     height: 400px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .cards{
+    padding: 40px 21px 0
   }
 }
 
@@ -376,6 +383,8 @@ body:after{
   .cards h2 {
     font-size: 20px;
   }
+
+ 
 }
 
 

@@ -168,7 +168,7 @@
   right: 0;
   height: 100%;
   top: 0;
-  border: 6px solid #98ef00;
+  border:6px solid #5d4277;
   border-radius: 10px;
 }
 
@@ -192,13 +192,13 @@
 }
 
 .cards>div {
-  width: calc(50% - 20px);
+  width: calc(50% - 30px);
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
-  margin: 0 10px 30px;
+  margin: 0 15px 30px;
 }
 
 
@@ -307,7 +307,7 @@ body:after{
  }
 
  iframe {
-  border: 6px solid #98ef00;
+  border: 6px solid #5d4277;
   border-radius: 10px;
  }
 

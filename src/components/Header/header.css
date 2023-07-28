@@ -1,0 +1,50 @@
+.space {
+  background-color: rgb(26 44 56);
+  border-top: 2px solid rgb(78, 75, 75);
+  border-bottom: 2px solid rgb(78, 75, 75);
+  height: 20px;
+}
+
+.singIn1 button {
+  border: none;
+  outline: none;
+  background-color: rgb(12, 27, 37);
+}
+
+
+.hMain {
+  background-color: #5d4277;
+  padding: 16px 20px;
+}
+
+.hMain .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singIn a {
+  display: flex;
+  padding: 15px 30px 13px;
+  background: rgb(15, 33, 46);
+  color: #5d4277;
+  text-decoration: none;
+  align-items: center;
+  column-gap: 20px;
+  border-radius: 30px;
+  background: #98ef00;
+  line-height: 1em;
+  transition: 0.3s all
+}
+
+.singIn a img {
+  width: 20px
+}
+
+.singIn a:hover {
+  box-shadow: 0 7px 15px black
+}
+
+.hIcon img {
+  width: 70px
+}

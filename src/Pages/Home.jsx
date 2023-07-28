@@ -43,7 +43,7 @@ export default function Home() {
         <div className="container">
           <div className="cardmainwrap">
             <CountDown
-              time={{ hrs: 0, min: 0, sec: 40 }}
+              time={{ hrs: 4, min: 20, sec: 40 }}
               text={"Place Your Bets, Race Starts in"}
             />
             <div className="cards">

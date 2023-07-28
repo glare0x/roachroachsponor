@@ -15,6 +15,7 @@
 .hMain {
   background-color: #5d4277;
   padding: 16px 20px;
+  
 }
 
 .hMain .container {
@@ -47,12 +48,17 @@
 }
 
 .hIcon img {
-  width: 160px;
-  margin: -34px 0 -43px;
+  width: 300px;
+  margin: -15px 0 -22px;
 }
 
 .hIcon a{
   display: inline-block;
+}
+
+.hIcon{
+    flex: 2;
+    text-align: center;
 }
 
 @media (max-width:640px){

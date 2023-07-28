@@ -168,6 +168,8 @@
   right: 0;
   height: 100%;
   top: 0;
+  border: 6px solid #98ef00;
+  border-radius: 10px;
 }
 
 .cardmainwrap {
@@ -201,8 +203,9 @@
 
 
 .cards div>img {
-  width: 40px !important;
-  height: auto !important
+  width: 128px !important;
+  height: auto !important;
+  margin: -28px 0;
 }
 
 .card-list {
@@ -213,13 +216,15 @@
   padding: 15px 10px 30px;
   margin: 0 auto;
   max-height: 80px;
+
 }
 
 .cardslistWrap {
   width: 100%;
   overflow: auto;
   background: #5d4277;
-  border: 1px solid #98ef00
+  border: 6px solid #98ef00;
+  border-radius:10px;
 }
 
 
@@ -262,6 +267,8 @@
   max-width: max-content;
   box-sizing: border-box;
   word-break: break-word;
+  border: 6px solid #98ef00;
+  border-radius: 30px;
 }
 
 .cards>div a {
@@ -297,6 +304,11 @@ body:after{
  
  .heroVideo{
   padding: 20px 20px
+ }
+
+ iframe {
+  border: 6px solid #98ef00;
+  border-radius: 10px;
  }
 
 @media (max-width:1100px) {

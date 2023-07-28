@@ -1,9 +1,9 @@
-import logo from "../Images/logo.png";
+import logo from "../Images/Roach-Rally-Banner.png";
 import busd from "../Images/busd-logo.svg";
-import redHamster from "../Images/hamster-red.svg";
-import yellowHamster from "../Images/hamster-yellow.svg";
-import greenHamster from "../Images/hamster-green.svg";
-import blueHamster from "../Images/hamster-blue.svg";
+import redHamster from "../Images/Black Roach.png";
+import yellowHamster from "../Images/Green Roach.png";
+import greenHamster from "../Images/Black Roach.png";
+import blueHamster from "../Images/Purp Roach.png";
 import user from "../Images/user.png";
 export function Logo({ styles }) {
   return <img src={logo} style={{ ...styles }} className="image" />;

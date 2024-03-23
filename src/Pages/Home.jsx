@@ -1,4 +1,5 @@
 import { useEffect, useState, Fragment } from 'react'
+import { ethers } from 'ethers';
 import data from "../components/Chat/data.json";
 import bets from "../components/BetSection/bets.js";
 import ChatCard from "../components/Chat/ChatCard";
@@ -8,7 +9,11 @@ import CountDown from "../components/useCountDown";
 import AskBet from "../components/BetSection/AskBet";
 import "./style.css";
 const ROACH_CONTRACT = "0x02286a7e39a79b81e9b35e63772dd50368d16ef9";
-import { getCurrentRoundNumber , sponsorRoach } from "../utils/roachUtils";
+import { 
+  getCurrentRoundNumber , 
+  getRoundData,
+  sponsorRoach 
+} from "../utils/roachUtils";
 
 
 
@@ -18,6 +23,9 @@ export default function Home({connected}) {
   const [roachID, setRoachID] = useState(0);
   const [betAmount, setBetAmount] = useState(0.01);
   const [roundNumber, setRoundNumber] = useState(0);
+  const [roachTotals, setRoachTotals] = useState({});
+  const [roachParticipants, setRoachParticipants] = useState({});
+
 
   useEffect(() => {
     if (connected) {
@@ -28,12 +36,25 @@ export default function Home({connected}) {
     }
   }, [connected]);
   useEffect(() => {
-    // If roundNumber changes, get round number data
-    /*
-    getRoundData().then((res) => {
-      setRoundData(res);
-    })
-    */
+    
+    if (roundNumber > 0) {
+      getRoundData(roundNumber).then((res) => {
+        debugger
+        setRoachTotals({
+          "1": ethers.utils.formatEther(res.roach1Total.toString()),
+          "2": ethers.utils.formatEther(res.roach2Total.toString()),
+          "3": ethers.utils.formatEther(res.roach3Total.toString()),
+          "4": ethers.utils.formatEther(res.roach4Total.toString()),
+        })
+        setRoachParticipants({
+          "1": res.roach1Participants.toString(),
+          "2": res.roach2Participants.toString(),
+          "3": res.roach3Participants.toString(),
+          "4": res.roach4Participants.toString()
+        })
+        console.log(roachTotals, roachParticipants);
+      })
+    }
 
   },[roundNumber])
   const openBetDialog = (event, id) => {
@@ -82,7 +103,7 @@ export default function Home({connected}) {
             />
             <div className="cards">
               {bets.map((bet) => (
-                <BetCard key={bet.name} data={bet} addBet={openBetDialog} />
+                <BetCard key={bet.name} data={bet} total={roachTotals[bet.id]} participants={roachParticipants[bet.id]} addBet={openBetDialog} />
               ))}
             </div>
           </div>

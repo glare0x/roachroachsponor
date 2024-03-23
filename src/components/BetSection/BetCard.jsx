@@ -1,6 +1,6 @@
 import BetData from "./BetData";
 // import { Hamster } from "../../assets/Images";
-export default function ({ data ,addBet }) {
+export default function ({ data ,addBet , total, participants}) {
   const { name, betsData, link, Img } = data;
   return (
     <div>
@@ -9,9 +9,7 @@ export default function ({ data ,addBet }) {
       <button onClick={() => addBet(this,data.id)}>Sponsor</button>
       <div className="cardslistWrap">
         <div className="card-list">
-          {betsData?.map((row) => {
-            return <BetData key={row.house} data={row} />;
-          })}
+            <BetData total={total} participants={participants} />
         </div>
       </div>
     </div>

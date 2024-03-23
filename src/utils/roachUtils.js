@@ -16,12 +16,12 @@ async function getCurrentRoundNumber() {
     const roundNumber = await contract.getCurrentRoundNumber();
     return roundNumber;
 }
-async function getRoundData() {
+async function getRoundData(roundNumber) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
-    const roundNumber = await contract.getRoundData();
-    return roundNumber;
+    const roundData = await contract.getRoundData(roundNumber);
+    return roundData;
 }
 async function sponsorRoach(roachId, amount) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -49,4 +49,5 @@ async function sponsorRoach(roachId, amount) {
 export { 
     getCurrentRoundNumber ,
     sponsorRoach,
+    getRoundData,
 };

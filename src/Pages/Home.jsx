@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react'
+import { useState, Fragment } from 'react';
 import data from "../components/Chat/data.json";
 import bets from "../components/BetSection/bets.js";
 import ChatCard from "../components/Chat/ChatCard";
@@ -8,48 +8,41 @@ import CountDown from "../components/useCountDown";
 import AskBet from "../components/BetSection/AskBet";
 import "./style.css";
 
-
-
 export default function Home() {
   const [isBetInputOpen, setBetInputIsOpen] = useState(false);
+
   const openBetDialog = (event, id) => {
-    setBetInputIsOpen(true)
-  }
+    setBetInputIsOpen(true);
+  };
+
   const closeAskBetDialog = () => {
-    setBetInputIsOpen(false)
-  }
+    setBetInputIsOpen(false);
+  };
+
   return (
     <>
       <AskBet open={isBetInputOpen} close={closeAskBetDialog} />
       <div className="mainContent">
         <div className="container">
-
-
           <div className="cardmainwrap">
-
-          <div className="heroVideo">
-        <iframe
-          title="YouTube Video"
-          width="100%"
-          height="600px"
-          src="https://www.youtube.com/embed/uXWycyeTeCs"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          autoPlay
-          controls
-        ></iframe>
-      </div>
+            <div className="heroVideo">
+              <iframe
+                src="https://player.twitch.tv/?channel=bobross&parent=localhost"
+                height="600"
+                width="100%"
+                allowFullScreen={true}>
+              </iframe>
+            </div>
             <CountDown
               time={{ hrs: 4, min: 20, sec: 40 }}
-              text={"Sponsor now, Race Starts in"}
+              text={"Sponsor Now, Race Starts in"}
             />
             <div className="cards">
-              {bets.map((bet) => {
-                return <BetCard key={bet.name} data={bet} addBet={openBetDialog} />;
-              })}
+              {bets.map((bet) => (
+                <BetCard key={bet.name} data={bet} addBet={openBetDialog} />
+              ))}
             </div>
           </div>
-
           <div className="chatwrap">
             <div className="chat">
               <ul className="activeSessions">
@@ -64,10 +57,7 @@ export default function Home() {
               <input type="text" placeholder="Enter Your Message Here" />
               <div className="btn">
                 <p>172 online</p>
-                <Button
-                  text={"Send"}
-                  clickFunction={() => console.log("Send Button Clicked")}
-                />
+                <Button text={"Send"} clickFunction={() => console.log("Send Button Clicked")} />
               </div>
             </div>
           </div>

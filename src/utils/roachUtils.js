@@ -13,7 +13,6 @@ async function simulateRewards(roach) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    console.log("account",account)
     const signer = provider.getSigner();
     const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
     const simulateRewards = await contract.simulateRewards(roach, account);
@@ -38,7 +37,6 @@ async function getRoundData(roundNumber) {
 async function sponsorRoach(roachId, amount) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    debugger
     // First, add allowance for the contract to spend the token
     const roachContract = new ethers.Contract(ROACH_TOKEN_CONTRACT, roachTokenABI, signer);
     const allowance = await roachContract.allowance(signer.getAddress(), ROACH_CONTRACT);

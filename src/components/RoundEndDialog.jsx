@@ -25,7 +25,15 @@ export default function AskBet({ open, close, winner }) {
                                            The round has ended, and here are the results! <br /><hr className="my-2" />
                                            {winner && (
                                             <div>
-                                            The winner is Roach {winner.winnerRoach}!
+                                            Round number: {winner.roundNumber}<br />
+                                            The winner is Roach {winner.winnerRoach}!<br />
+                                            <br />
+                                            The rewards are:<br />
+                                            Amount of winners: {winner.numberOfWinners}<br />
+                                            Total rewards: {winner.totalWinnerSponsors}<br />
+                                            <br />
+                                            Amount of losers: {winner.numberOfLosers}<br />
+                                            Total rewards: {winner.totalLoserSponsors}<br />
                                             </div>
                                            )}
 

@@ -6,7 +6,7 @@ import ChatCard from "../components/Chat/ChatCard";
 import Button from "../assets/Button";
 import BetCard from "../components/BetSection/BetCard";
 import CountDown from "../components/useCountDown";
-import AskBet from "../components/BetSection/AskBet";
+import AskSponsor from "../components/BetSection/AskSponsor";
 import RoundEndDialog from "../components/RoundEndDialog";
 import contractABI from  '../utils/roachABI.json';
 import {useRoachStore } from "../store.js";
@@ -32,7 +32,7 @@ export default function Home({connected}) {
   const [roachParticipants, setRoachParticipants] = useState({});
   const [roundEndData, setRoundEndData] = useState(null);
   const [showRoundEndDialog, setShowRoundEndDialog] = useState(false);
-  const [askBetBusy, setAskBetBusy] = useState(false);
+  const [askBetBusy, setAskSponsorBusy] = useState(false);
   const [simulatedRewards, setSimulatedRewards] = useState(null);
   const roaches = useRoachStore((state) => state.roaches);
 
@@ -42,7 +42,7 @@ export default function Home({connected}) {
 
     contract.on("NewSponsor", (addr, roach, round, amount, event) => {
 
-        console.log(`New Sponsor Detected: ${args}`);
+        console.log(`New Sponsor Detected`);
         // Just get the new round data, don't try to merge or anything fancy.
       getRoundData(roundNumber).then((res) => {
         setRoachTotals({
@@ -61,15 +61,15 @@ export default function Home({connected}) {
       });
     contract.on("RoundEnd", (roundNumber, winnerRoach, totalWinnerSponsors, totalLoserSponsors, numberOfWinners, numberOfLosers) => {
         debugger
-        console.log(`Round End Detected: ${args}`);
+        console.log(`Round End Detected: `);
         // Additional logic to handle the event
         setRoundEndData({
           roundNumber,
-          winnerRoach,
-          totalWinnerSponsors,
-          totalLoserSponsors,
-          numberOfWinners,
-          numberOfLosers
+          winnerRoach : winnerRoach.toString(),
+          totalWinnerSponsors : ethers.utils.formatEther(totalWinnerSponsors.toString()),
+          totalLoserSponsors : ethers.utils.formatEther(totalLoserSponsors.toString()),
+          numberOfWinners : numberOfWinners.toString(),
+          numberOfLosers : numberOfLosers.toString(),
         });
         setShowRoundEndDialog(true);
       });
@@ -119,18 +119,18 @@ export default function Home({connected}) {
 const closeRoundEndDialog = () => {
   setShowRoundEndDialog(false)
 }
-const closeAskBetDialog = () => {
+const closeAskSponsorDialog = () => {
   setBetInputIsOpen(false)
 }
 
 const onBet = (amount) => {
-  setAskBetBusy(true);
+  setAskSponsorBusy(true);
   sponsorRoach(roachID, amount).then((res) => {
-    setAskBetBusy(false);
+    setAskSponsorBusy(false);
     setBetInputIsOpen(false)
     alert("Your bet has been placed!")
   }).catch(err => {
-    setAskBetBusy(false);
+    setAskSponsorBusy(false);
     debugger
     alert(err.reason)
   })
@@ -139,7 +139,7 @@ const onBet = (amount) => {
 return (
   <>
     <RoundEndDialog open={showRoundEndDialog} close={closeRoundEndDialog} winner={roundEndData} />
-    <AskBet open={isBetInputOpen} close={closeAskBetDialog} onBet={onBet} busy={askBetBusy} />
+    <AskSponsor open={isBetInputOpen} close={closeAskSponsorDialog} onBet={onBet} busy={askBetBusy} />
     <div className="mainContent">
       <div className="container">
         <div className="cardmainwrap">

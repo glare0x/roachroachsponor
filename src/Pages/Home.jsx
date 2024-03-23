@@ -84,15 +84,11 @@ export default function Home({connected}) {
 
           <div className="heroVideo">
         <iframe
-          title="YouTube Video"
-          width="100%"
-          height="600px"
-          src="https://www.youtube.com/embed/uXWycyeTeCs"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          autoPlay
-          controls
-        ></iframe>
+                src="https://player.twitch.tv/?channel=bobross&parent=localhost"
+                height="600"
+                width="100%"
+                allowFullScreen={true}>
+              </iframe>
       </div>
       <div className="w-3/4 mx-auto block mt-4">
       <h2 className="text-2xl text-center">Round number #{ roundNumber }</h2>

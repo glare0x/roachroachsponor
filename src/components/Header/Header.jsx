@@ -4,9 +4,10 @@ import { Logo } from "../../assets/Images";
 import { Dialog } from '@headlessui/react'
 import "./header.css";
 
-export default function Header() {
+export default function Header({onWalletConnect}) {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const BASE_MAINNET_ID = '8453';
+
 
   useEffect(() => {
     const checkWalletConnectionAndNetwork = async () => {
@@ -16,6 +17,7 @@ export default function Header() {
           const networkId = await window.ethereum.request({ method: 'net_version' });
           if (accounts.length > 0 && networkId === BASE_MAINNET_ID) {
             setIsWalletConnected(true); // Wallet is connected and on the correct network
+            onWalletConnect(true);
           } else if (networkId !== BASE_MAINNET_ID) {
             switchToBaseMainnet(); // Attempt to switch if not on Base mainnet
           }
@@ -51,6 +53,7 @@ export default function Header() {
         const networkId = await window.ethereum.request({ method: 'net_version' });
         if (accounts.length > 0 && networkId === BASE_MAINNET_ID) {
           setIsWalletConnected(true);
+            onWalletConnect(true);
         } else if (networkId !== BASE_MAINNET_ID) {
           await switchToBaseMainnet();
         }

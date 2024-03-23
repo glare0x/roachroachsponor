@@ -2,7 +2,6 @@ import BetData from "./BetData";
 // import { Hamster } from "../../assets/Images";
 export default function ({ data ,addBet }) {
   const { name, betsData, link, Img } = data;
-  console.log(Img);
   return (
     <div>
       <h2>{name}</h2>

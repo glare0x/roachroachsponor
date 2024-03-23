@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 
-export default function AskBet({ open, close }) {
+export default function AskBet({ open, close, onBet }) {
 
   const cancelButtonRef = useRef(null)
   const [betAmount, setBetAmount] = useState(0.01)
@@ -36,7 +36,7 @@ export default function AskBet({ open, close }) {
                             <button
                                 type="button"
                                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                onClick={() => close(false)}
+                                onClick={() => onBet(betAmount)}
                             >
                                 Bet!
                             </button>

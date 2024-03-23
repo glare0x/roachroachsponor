@@ -2,11 +2,23 @@ import Web3 from 'web3';
 import contractABI from  './roachABI.json';
 import roachTokenABI from  './roachTokenABI.json';
 import { ethers } from 'ethers';
+import {useRoachStore } from "../store.js";
+
 
 
 const ROACH_CONTRACT = import.meta.env.VITE_ROACH_CONTRACT;
 const ROACH_TOKEN_CONTRACT = import.meta.env.VITE_ROACH_TOKEN_CONTRACT;
 // Import the necessary dependencies
+async function simulateRewards(roach) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    console.log("account",account)
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
+    const simulateRewards = await contract.simulateRewards(roach, account);
+    return simulateRewards;
+}
 
 // Create a function to get the current round number
 async function getCurrentRoundNumber() {
@@ -50,4 +62,5 @@ export {
     getCurrentRoundNumber ,
     sponsorRoach,
     getRoundData,
+    simulateRewards,
 };

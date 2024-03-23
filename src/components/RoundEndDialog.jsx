@@ -2,10 +2,9 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 
-export default function AskBet({ open, close, onBet, busy }) {
+export default function AskBet({ open, close, winner }) {
 
   const cancelButtonRef = useRef(null)
-  const [betAmount, setBetAmount] = useState(10)
 
   return (
         <Dialog open={open} as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={close}>
@@ -20,34 +19,26 @@ export default function AskBet({ open, close, onBet, busy }) {
                                     <InformationCircleIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
                                 </div>
                                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                    <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">Bet a CockRoach</Dialog.Title>
+                                    <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">The round ended</Dialog.Title>
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">
-                                           Input your bet amount for your favourite cockroach!
-                                        </p>
-                                        <p>
-                                        <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" placeholder="Enter your bet amount" value={betAmount}  onChange={e => setBetAmount(e.target.value)}/>
+                                           The round has ended, and here are the results! <br /><hr className="my-2" />
+                                           The winner is Roach {winner.winnerRoach}!
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button
-                                type="button"
-                                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                disabled={busy}
-                                onClick={() => onBet(betAmount)}
-                            >
-                            { busy ? 'Betting...' : 'Bet!'}
-                            </button>
+                            
                             <button
                                 type="button"
                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                 onClick={() => close(false)}
                                 ref={cancelButtonRef}
                             >
-                                Cancel
+                                OK
                             </button>
                         </div>
                     </Dialog.Panel>

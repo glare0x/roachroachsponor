@@ -1,7 +1,7 @@
-import React from "react";
-import { BUSD } from "../../assets/Images";
+import React from "react"
+import { BUSD } from "../../assets/Images"
 
-export default function BetData({  total, participants}) {
+export default function BetData({ total, participants }) {
   //const { house, amount, ratio } = data;
   return (
     <div>
@@ -15,6 +15,9 @@ export default function BetData({  total, participants}) {
         {" "}
         <span>{participants || 0} sponsor(s)</span>
       </div>
+
+
+
     </div>
-  );
+  )
 }

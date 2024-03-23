@@ -1,15 +1,26 @@
+import { useState, Fragment } from 'react'
 import data from "../components/Chat/data.json";
 import bets from "../components/BetSection/bets.js";
 import ChatCard from "../components/Chat/ChatCard";
 import Button from "../assets/Button";
 import BetCard from "../components/BetSection/BetCard";
 import CountDown from "../components/useCountDown";
+import AskBet from "../components/BetSection/AskBet";
 import "./style.css";
 
+
+
 export default function Home() {
+  const [isBetInputOpen, setBetInputIsOpen] = useState(false);
+  const openBetDialog = (event, id) => {
+    setBetInputIsOpen(true)
+  }
+  const closeAskBetDialog = () => {
+    setBetInputIsOpen(false)
+  }
   return (
     <>
-
+      <AskBet open={isBetInputOpen} close={closeAskBetDialog} />
       <div className="mainContent">
         <div className="container">
 
@@ -34,7 +45,7 @@ export default function Home() {
             />
             <div className="cards">
               {bets.map((bet) => {
-                return <BetCard key={bet.name} data={bet} />;
+                return <BetCard key={bet.name} data={bet} addBet={openBetDialog} />;
               })}
             </div>
           </div>

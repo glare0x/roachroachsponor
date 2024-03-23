@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import user from "../../assets/Images/user.svg";
 import { Logo } from "../../assets/Images";
+import { Dialog } from '@headlessui/react'
 import "./header.css";
 
 export default function Header() {

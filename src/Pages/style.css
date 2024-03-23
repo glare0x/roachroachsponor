@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .chat {
   scroll-behavior: smooth;
   background: #0F212E;
@@ -273,6 +277,14 @@
 }
 
 .cards>div a {
+  padding: 10px 20px;
+  background: #98ef00;
+  text-decoration: none;
+  color: #5d4277;
+  transition: 0.3s all;
+  border-radius: 30px;
+}
+.cards>div button {
   padding: 10px 20px;
   background: #98ef00;
   text-decoration: none;

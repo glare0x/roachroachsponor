@@ -39,7 +39,7 @@ export default function AskBet({ open, close, onBet, busy }) {
                                 disabled={busy}
                                 onClick={() => onBet(betAmount)}
                             >
-                            { busy ? 'Betting...' : 'Bet!'}
+                            { busy ? 'Sponsoring...' : 'Sponsor!'}
                             </button>
                             <button
                                 type="button"

@@ -1,9 +1,11 @@
 import Web3 from 'web3';
 import contractABI from  './roachABI.json';
+import roachTokenABI from  './roachTokenABI.json';
 import { ethers } from 'ethers';
 
 
 const ROACH_CONTRACT = import.meta.env.VITE_ROACH_CONTRACT;
+const ROACH_TOKEN_CONTRACT = import.meta.env.VITE_ROACH_TOKEN_CONTRACT;
 // Import the necessary dependencies
 
 // Create a function to get the current round number
@@ -21,8 +23,30 @@ async function getRoundData() {
     const roundNumber = await contract.getRoundData();
     return roundNumber;
 }
+async function sponsorRoach(roachId, amount) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    debugger
+    // First, add allowance for the contract to spend the token
+    const roachContract = new ethers.Contract(ROACH_TOKEN_CONTRACT, roachTokenABI, signer);
+    const allowance = await roachContract.allowance(signer.getAddress(), ROACH_CONTRACT);
+    // Convert the amount to wei
+    amount = ethers.utils.parseEther(amount.toString());
+    console.log("Roach token contract",ROACH_TOKEN_CONTRACT)
+    if (allowance < amount) {
+        const approveTx = await roachContract.approve(ROACH_CONTRACT, amount);
+        await approveTx.wait();
+    }
+
+    const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
+    console.log("Race contract",ROACH_CONTRACT)
+    const ret = await contract.sponsorRoach(roachId, amount);
+    return ret;
+
+}
 
 // Export the function
 export { 
     getCurrentRoundNumber ,
+    sponsorRoach,
 };

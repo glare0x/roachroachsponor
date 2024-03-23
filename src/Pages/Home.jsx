@@ -8,15 +8,17 @@ import CountDown from "../components/useCountDown";
 import AskBet from "../components/BetSection/AskBet";
 import "./style.css";
 const ROACH_CONTRACT = "0x02286a7e39a79b81e9b35e63772dd50368d16ef9";
-import { getCurrentRoundNumber , getRoundData } from "../utils/roachUtils";
+import { getCurrentRoundNumber , sponsorRoach } from "../utils/roachUtils";
 
 
 
 export default function Home({connected}) {
   const [isBetInputOpen, setBetInputIsOpen] = useState(false);
   const [betRoach, setBetRoach] = useState(0);
+  const [roachID, setRoachID] = useState(0);
   const [betAmount, setBetAmount] = useState(0.01);
   const [roundNumber, setRoundNumber] = useState(0);
+
   useEffect(() => {
     if (connected) {
       getCurrentRoundNumber().then((result) => {
@@ -27,12 +29,15 @@ export default function Home({connected}) {
   }, [connected]);
   useEffect(() => {
     // If roundNumber changes, get round number data
+    /*
     getRoundData().then((res) => {
       setRoundData(res);
     })
+    */
 
   },[roundNumber])
   const openBetDialog = (event, id) => {
+    setRoachID(id);
     setBetInputIsOpen(true);
   };
 
@@ -41,7 +46,13 @@ export default function Home({connected}) {
   }
 
   const onBet = (amount) => {
-    debugger
+    sponsorRoach(roachID, amount).then((res) => {
+      debugger
+    }).catch(err => {
+      debugger
+      alert(err.reason)
+    })
+
   }
   return (
     <>

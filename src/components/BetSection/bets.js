@@ -1,6 +1,8 @@
 import * as Images from "../../assets/Images";
 export default [
   {
+
+    id : 1,
     link: "https://www.google.com",
     name: "Charlie",
     color: "red",
@@ -29,6 +31,7 @@ export default [
     ],
   },
   {
+    id : 2,
     link: "https://www.google.com",
     name: "Amanda",
     color: "yellow",
@@ -57,6 +60,7 @@ export default [
     ],
   },
   {
+    id : 3,
     link: "https://www.google.com",
     name: "Smith",
     color: "blue",
@@ -85,6 +89,7 @@ export default [
     ],
   },
   {
+    id : 4,
     link: "https://www.google.com",
     name: "Josh",
     color: "green",

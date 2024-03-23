@@ -5,7 +5,7 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline'
 export default function AskBet({ open, close, onBet }) {
 
   const cancelButtonRef = useRef(null)
-  const [betAmount, setBetAmount] = useState(0.01)
+  const [betAmount, setBetAmount] = useState(10)
 
   return (
         <Dialog open={open} as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={close}>
@@ -26,7 +26,7 @@ export default function AskBet({ open, close, onBet }) {
                                            Input your bet amount for your favourite cockroach!
                                         </p>
                                         <p>
-                                        <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" placeholder="Enter your bet amount" value={betAmount} />
+                                        <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" placeholder="Enter your bet amount" value={betAmount}  onChange={e => setBetAmount(e.target.value)}/>
                                         </p>
                                     </div>
                                 </div>

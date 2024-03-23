@@ -40,17 +40,37 @@ export default function Home({connected}) {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
 
-    contract.on("NewSponsor", (...args) => {
+    contract.on("NewSponsor", (addr, roach, round, amount, event) => {
 
         console.log(`New Sponsor Detected: ${args}`);
-        debugger
         // Just get the new round data, don't try to merge or anything fancy.
+      getRoundData(roundNumber).then((res) => {
+        setRoachTotals({
+          "1": ethers.utils.formatEther(res.roach1Total.toString()),
+          "2": ethers.utils.formatEther(res.roach2Total.toString()),
+          "3": ethers.utils.formatEther(res.roach3Total.toString()),
+          "4": ethers.utils.formatEther(res.roach4Total.toString()),
+        })
+        setRoachParticipants({
+          "1": res.roach1Participants.toString(),
+          "2": res.roach2Participants.toString(),
+          "3": res.roach3Participants.toString(),
+          "4": res.roach4Participants.toString()
+        })
+      })
       });
-    contract.on("RoundEnd", (...args) => {
+    contract.on("RoundEnd", (roundNumber, winnerRoach, totalWinnerSponsors, totalLoserSponsors, numberOfWinners, numberOfLosers) => {
         debugger
         console.log(`Round End Detected: ${args}`);
         // Additional logic to handle the event
-        setRoundEndData(args);
+        setRoundEndData({
+          roundNumber,
+          winnerRoach,
+          totalWinnerSponsors,
+          totalLoserSponsors,
+          numberOfWinners,
+          numberOfLosers
+        });
         setShowRoundEndDialog(true);
       });
 

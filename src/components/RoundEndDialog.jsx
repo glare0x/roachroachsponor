@@ -23,7 +23,11 @@ export default function AskBet({ open, close, winner }) {
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">
                                            The round has ended, and here are the results! <br /><hr className="my-2" />
-                                           The winner is Roach {winner.winnerRoach}!
+                                           {winner && (
+                                            <div>
+                                            The winner is Roach {winner.winnerRoach}!
+                                            </div>
+                                           )}
 
                                         </p>
                                     </div>

@@ -20,13 +20,13 @@ export default function AskBet({ open, close, onBet, busy }) {
                                     <InformationCircleIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
                                 </div>
                                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                    <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">Bet a CockRoach</Dialog.Title>
+                                    <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">Sponsor a CockRoach</Dialog.Title>
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">
-                                           Input your bet amount for your favourite cockroach!
+                                           Input your sponsor amount for your favourite cockroach!
                                         </p>
                                         <p>
-                                        <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" placeholder="Enter your bet amount" value={betAmount}  onChange={e => setBetAmount(e.target.value)}/>
+                                        <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" value={betAmount}  onChange={e => setBetAmount(e.target.value)}/>
                                         </p>
                                     </div>
                                 </div>

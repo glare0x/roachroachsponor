@@ -7,7 +7,7 @@ export default [
     Img: Images.RedHamster,
     betsData: [
       {
-        house: "0xzc...AFdC",
+        house: "0x1c...AFdC",
         amount: 1.0,
         ratio: 3.0,
       },

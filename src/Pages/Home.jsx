@@ -9,11 +9,11 @@ import "./style.css";
 export default function Home() {
   return (
     <>
-      
+
       <div className="mainContent">
         <div className="container">
 
-          
+
           <div className="cardmainwrap">
 
           <div className="heroVideo">
@@ -30,7 +30,7 @@ export default function Home() {
       </div>
             <CountDown
               time={{ hrs: 4, min: 20, sec: 40 }}
-              text={"Place Your Bets, Race Starts in"}
+              text={"Sponsor now, Race Starts in"}
             />
             <div className="cards">
               {bets.map((bet) => {

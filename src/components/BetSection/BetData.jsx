@@ -11,7 +11,7 @@ export default function BetData({ data }) {
       <div>
         <span>
           {" "}
-          {amount} BUSD{" "}
+          {amount} ROACH{" "}
           <BUSD styles={{ height: "10px", width: "10px", color: "red" }} />
         </span>
       </div>

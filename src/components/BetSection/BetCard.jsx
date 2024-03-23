@@ -7,7 +7,7 @@ export default function ({ data }) {
     <div>
       <h2>{name}</h2>
       <Img />
-      <a href={link}>Place</a>
+      <a href={link}>Sponsor</a>
       <div className="cardslistWrap">
         <div className="card-list">
           {betsData?.map((row) => {

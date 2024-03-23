@@ -7,6 +7,7 @@ import Button from "../assets/Button";
 import BetCard from "../components/BetSection/BetCard";
 import CountDown from "../components/useCountDown";
 import AskBet from "../components/BetSection/AskBet";
+import {useRoachStore } from "../store.js";
 import "./style.css";
 const ROACH_CONTRACT = "0x02286a7e39a79b81e9b35e63772dd50368d16ef9";
 import { 
@@ -25,6 +26,7 @@ export default function Home({connected}) {
   const [roundNumber, setRoundNumber] = useState(0);
   const [roachTotals, setRoachTotals] = useState({});
   const [roachParticipants, setRoachParticipants] = useState({});
+  const roaches = useRoachStore((state) => state.roaches);
 
 
   useEffect(() => {
@@ -39,7 +41,6 @@ export default function Home({connected}) {
     
     if (roundNumber > 0) {
       getRoundData(roundNumber).then((res) => {
-        debugger
         setRoachTotals({
           "1": ethers.utils.formatEther(res.roach1Total.toString()),
           "2": ethers.utils.formatEther(res.roach2Total.toString()),
@@ -52,7 +53,6 @@ export default function Home({connected}) {
           "3": res.roach3Participants.toString(),
           "4": res.roach4Participants.toString()
         })
-        console.log(roachTotals, roachParticipants);
       })
     }
 

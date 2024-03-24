@@ -165,10 +165,10 @@ return (
               </div>
             </div>
 
-            <CountDown
+            {/* <CountDown
               time={{ hrs: 4, min: 20, sec: 40 }}
               text={"Sponsor Now, Race Starts in"}
-            />
+            /> */}
             <div className="cards">
               {bets.map((bet) => (
                 <BetCard key={bet.name} data={bet} total={roachTotals[bet.id]} participants={roachParticipants[bet.id]} addBet={openBetDialog} />

@@ -146,7 +146,7 @@ return (
 
           <div className="heroVideo">
         <iframe
-                src="https://player.twitch.tv/?channel=roachrally&parent=roachrallyraces.xyz"
+                src="https://player.twitch.tv/?channel=roachrally&parent=https://www.roachrallyraces.xyz/"
                 height="600"
                 width="100%"
                 allowFullScreen={true}>

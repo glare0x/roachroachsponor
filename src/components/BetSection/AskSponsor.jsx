@@ -1,11 +1,25 @@
-import { Fragment, useRef, useState } from 'react'
+import { useEffect, Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { ethers } from 'ethers';
+import { 
+  simulateRewardsBeforeSponsor,
+} from "../../utils/roachUtils";
 
-export default function AskBet({ open, close, onBet, busy }) {
+export default function AskBet({ open, close, onBet, busy, roach }) {
 
+  const DEFAULT_SPONSOR_AMOUNT = 10;
   const cancelButtonRef = useRef(null)
-  const [betAmount, setBetAmount] = useState(10)
+  const [betAmount, setBetAmount] = useState(DEFAULT_SPONSOR_AMOUNT)
+  const [simulatedRewards, setSimulatedRewards] = useState(null)
+  useEffect(() => {
+    if (roach === 0) return;
+    // Fetch the simulated rewards
+    simulateRewardsBeforeSponsor(roach, betAmount).then((res) => {
+        const reward = ethers.utils.formatEther(res.reward.toString());
+        setSimulatedRewards(reward);
+    })
+  },[roach, betAmount]);
 
   return (
         <Dialog open={open} as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={close}>
@@ -28,6 +42,11 @@ export default function AskBet({ open, close, onBet, busy }) {
                                         <p>
                                         <input className="text-black border rounded-lg px-8 py-2 w-full my-2" type="number" value={betAmount}  onChange={e => setBetAmount(e.target.value)}/>
                                         </p>
+                                        { simulatedRewards != null && (
+                                            <div className="font-bold text-black">
+                                                Rewards, if you win: <span className="px-2 text-green-700 font-bold">{simulatedRewards}</span><br />
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>

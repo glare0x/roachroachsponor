@@ -86,7 +86,8 @@ export default function Home({connected}) {
     
     if (roundNumber > 0) {
       /*
-      simulateRewards(roundNumber).then((res) => {
+      simulateRewards(2).then((res) => {
+        debugger
         console.log("Simulated Rewards",res)
         setSimulatedRewards({
           sponsored : ethers.utils.formatEther(res.amountSponsored.toString()),
@@ -139,7 +140,7 @@ const onBet = (amount) => {
 return (
   <>
     <RoundEndDialog open={showRoundEndDialog} close={closeRoundEndDialog} winner={roundEndData} />
-    <AskSponsor open={isBetInputOpen} close={closeAskSponsorDialog} onBet={onBet} busy={askBetBusy} />
+    <AskSponsor open={isBetInputOpen} close={closeAskSponsorDialog} onBet={onBet} busy={askBetBusy} roach={roachID} />
     <div className="mainContent">
       <div className="container">
         <div className="cardmainwrap">

@@ -8,7 +8,16 @@ import {useRoachStore } from "../store.js";
 
 const ROACH_CONTRACT = import.meta.env.VITE_ROACH_CONTRACT;
 const ROACH_TOKEN_CONTRACT = import.meta.env.VITE_ROACH_TOKEN_CONTRACT;
-// Import the necessary dependencies
+
+async function simulateRewardsBeforeSponsor(roach, amount) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(ROACH_CONTRACT, contractABI, signer);
+    // Convert amount to wei
+    amount = ethers.utils.parseEther(amount.toString());
+    const simulateRewards = await contract.simulateRewardsBeforeSponsor(roach, amount);
+    return simulateRewards;
+}
 async function simulateRewards(roach) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -61,4 +70,5 @@ export {
     sponsorRoach,
     getRoundData,
     simulateRewards,
+    simulateRewardsBeforeSponsor,
 };

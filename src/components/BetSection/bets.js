@@ -4,7 +4,7 @@ export default [
 
     id : 1,
     link: "https://www.google.com",
-    name: "Charlie",
+    name: "Jesse Pollack",
     color: "red",
     Img: Images.RedHamster,
     betsData: [
@@ -33,7 +33,7 @@ export default [
   {
     id : 2,
     link: "https://www.google.com",
-    name: "Amanda",
+    name: "Brian Armstrong",
     color: "yellow",
     Img: Images.YellowHamster,
     betsData: [
@@ -62,7 +62,7 @@ export default [
   {
     id : 3,
     link: "https://www.google.com",
-    name: "Smith",
+    name: "Greg Roach",
     color: "blue",
     Img: Images.GreenHamster,
     betsData: [
@@ -91,7 +91,7 @@ export default [
   {
     id : 4,
     link: "https://www.google.com",
-    name: "Josh",
+    name: "Dale Roachart",
     color: "green",
     Img: Images.BlueHamster,
     betsData: [

@@ -147,7 +147,11 @@ return (
 
           <div className="heroVideo">
         <iframe
+<<<<<<< HEAD
                 src="https://player.twitch.tv/?channel=roachrally&parent=localhost"
+=======
+                src="https://player.twitch.tv/?channel=roachrally&parent=www.roachrallyraces.xyz"
+>>>>>>> 6e6af57abb031c640da9062cdf057596319d02fd
                 height="600"
                 width="100%"
                 allowFullScreen={true}>
@@ -166,10 +170,10 @@ return (
               </div>
             </div>
 
-            <CountDown
+            {/* <CountDown
               time={{ hrs: 4, min: 20, sec: 40 }}
               text={"Sponsor Now, Race Starts in"}
-            />
+            /> */}
             <div className="cards">
               {bets.map((bet) => (
                 <BetCard key={bet.name} data={bet} total={roachTotals[bet.id]} participants={roachParticipants[bet.id]} addBet={openBetDialog} />

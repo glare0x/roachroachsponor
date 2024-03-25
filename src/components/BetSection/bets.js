@@ -3,8 +3,13 @@ export default [
   {
 
     id : 1,
+<<<<<<< HEAD
     link: "https://www.google.com",
     name: "Jesse Pollack",
+=======
+    link: "https://www.google.com/",
+    name: "Jesse Pollak",
+>>>>>>> 6e6af57abb031c640da9062cdf057596319d02fd
     color: "red",
     Img: Images.RedHamster,
     betsData: [
@@ -32,7 +37,11 @@ export default [
   },
   {
     id : 2,
+<<<<<<< HEAD
     link: "https://www.google.com",
+=======
+    link: "https://www.google.com/",
+>>>>>>> 6e6af57abb031c640da9062cdf057596319d02fd
     name: "Brian Armstrong",
     color: "yellow",
     Img: Images.YellowHamster,
@@ -61,7 +70,11 @@ export default [
   },
   {
     id : 3,
+<<<<<<< HEAD
     link: "https://www.google.com",
+=======
+    link: "https://www.google.com/",
+>>>>>>> 6e6af57abb031c640da9062cdf057596319d02fd
     name: "Greg Roach",
     color: "blue",
     Img: Images.GreenHamster,
@@ -90,7 +103,11 @@ export default [
   },
   {
     id : 4,
+<<<<<<< HEAD
     link: "https://www.google.com",
+=======
+    link: "https://www.google.com/",
+>>>>>>> 6e6af57abb031c640da9062cdf057596319d02fd
     name: "Dale Roachart",
     color: "green",
     Img: Images.BlueHamster,
